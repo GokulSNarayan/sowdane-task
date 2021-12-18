@@ -11,6 +11,7 @@ body {
   background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
   background-repeat: no-repeat;
   min-height: 100vh;
+ 
 }
 
 a {
@@ -20,4 +21,39 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+@layer components {
+  .layoutGrid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    min-height: 100vh;
+  }
+  .sidenavbar {
+    grid-column-start: span 1;
+    z-index: 10;
+    background-color: #423591;
+    grid-row: 1 / span 3;
+  }
+  .content {
+    grid-column: 2 / span 5;
+  }
+  footer {
+    grid-column: 2 / span 5;
+    grid-row-start: 3;
+    align-self: end;
+  }
+  .topNav{
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+    height:50px;
+    grid-column: 2 / span 5;
+    grid-row-start: 1;
+    align-self: start;
+  }
+  .topNav > span {
+    margin-right: 20px;
+  }
 }
