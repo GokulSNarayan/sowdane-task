@@ -27,21 +27,22 @@ a {
   .layoutGrid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(6, 1fr);
     min-height: 100vh;
   }
   .sidenavbar {
     grid-column-start: span 1;
     z-index: 10;
     background-color: #423591;
-    grid-row: 1 / span 3;
+    grid-row: 1 / span 6;
   }
   .content {
+    grid-row: 2/span 5;
     grid-column: 2 / span 5;
   }
   footer {
     grid-column: 2 / span 5;
-    grid-row-start: 3;
+    grid-row-start: 6;
     align-self: end;
   }
   .topNav{
@@ -49,9 +50,11 @@ a {
     justify-content: flex-end;
     align-items: center;
     height:50px;
-    grid-column: 2 / span 5;
-    grid-row-start: 1;
+    grid-column: auto/span 5;
     align-self: start;
+    position:sticky;
+    top:0;
+    place-items:stretch;
   }
   .topNav > span {
     margin-right: 20px;

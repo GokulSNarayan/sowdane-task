@@ -3,9 +3,9 @@ import { useState } from 'react';
 
 
 export default function Header() {
-    const [show, setShow] = useState('translate-x-64');
+    const [show, setShow] = useState('translate-x-0');
     const toggleNav = () => {
-        setShow(prev => prev==='translate-x-0' ? '-translate-x-64':'translate-x-0')
+        setShow(prev => prev==='translate-x-0' ? '-translate-x-[80%]':'translate-x-0')
     }
 
 

@@ -1,15 +1,70 @@
 import Layout from "../components/layout";
+import TextField from '@mui/material/TextField';
+import Box from '@mui/material/Box';
+import { useState } from "react";
+import Button from '@mui/material/Button';
+import useSWR from 'swr'
 
 export default function Dashboard() {
+    const [readOnly, setReadOnly] = useState(true);
+
+    const toggleEdit = () => {
+        setReadOnly(prev => !prev)
+    }
     return (
         <Layout>
-            <p className="m-2 p-4">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio quisquam asperiores sit veniam omnis quod officiis consectetur rem, autem in ipsa dolores provident quia eligendi suscipit eos neque. Aperiam, modi?
-                Eligendi quisquam obcaecati quae. Dolore eum, nulla autem voluptatum ducimus voluptatibus suscipit consectetur hic unde in quo deserunt aspernatur omnis totam. Beatae, sequi? Accusantium voluptatibus, eligendi quisquam asperiores beatae alias!
-                Dolores excepturi porro veniam fuga rem quibusdam eius accusantium accusamus. Velit eligendi laborum veritatis dolore, possimus magni! Et rerum modi exercitationem repellendus ipsa, quo vitae earum, fugiat dolores, incidunt voluptatum!
-                Voluptas enim natus quos, quod, illo quibusdam dignissimos sit quis voluptatem distinctio nemo, exercitationem corrupti! Inventore odio, doloribus delectus, maiores exercitationem, culpa consequuntur tempora nostrum excepturi ad esse! Ex, ullam!
-                Ducimus corporis, iure totam corrupti neque vero quasi quo tenetur rerum recusandae laboriosam fugit placeat nihil illum dolor suscipit saepe ratione fugiat hic temporibus porro adipisci. Architecto eos nulla suscipit.
-            </p>
+            <div className="m-2 p-4 flex flex-col items-center justify-start">
+
+                <Box
+                    className="flex flex-col bg-slate-100 w-3/4 mb-4 p-4"
+                    component="form"
+                    sx={{
+                        '& .MuiTextField-root': { m: 1, width: '25ch' },
+                    }}
+                    noValidate
+                    autoComplete="off"
+                >
+                    <TextField
+                        id="outlined-read-only-input"
+                        label="Name"
+                        defaultValue="Hello World"
+                        InputProps={{
+                            readOnly: readOnly,
+                        }}
+                        variant="standard"
+                        color={readOnly ? "" : "success"}
+
+                    />
+                    <TextField
+                        id="outlined-read-only-input"
+                        label="Email"
+                        defaultValue="Hello World"
+                        InputProps={{
+                            readOnly: readOnly,
+                        }}
+                        variant="standard"
+                    />
+                    <TextField
+                        id="outlined-read-only-input"
+                        label="Phone"
+                        defaultValue="Hello World"
+                        InputProps={{
+                            readOnly: readOnly,
+                        }}
+                        variant="standard"
+                    />
+                    <TextField
+                        id="outlined-read-only-input"
+                        label="Password"
+                        defaultValue="Hello World"
+                        InputProps={{
+                            readOnly: readOnly,
+                        }}
+                        variant="standard"
+                    />
+                </Box>
+                <Button className="mb-4 bg-blue-500 shadow-sm shadow-blue-600/50" variant="contained" onClick={toggleEdit}>Edit</Button>
+            </div>
         </Layout>
     );
 }
